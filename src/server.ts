@@ -1,5 +1,5 @@
-import 'reflect-metadata';
 import 'dotenv/config';
+import 'reflect-metadata';
 import App from './App';
 
-App.listen(process.env.PORT, () => console.log('application on port 3000'));
+App.listen(process.env.PORT, () => console.log(`Server listening at http://localhost:${process.env.PORT}`));

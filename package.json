@@ -1,13 +1,13 @@
 {
   "name": "task-list-2.0",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.ts",
   "repository": "https://github.com/br3nds0n/task-list-2.0.git",
   "author": "br3nds0n <brendson.net@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "node dist/src/server.js",
-    "typeorm": "ts-node-dev ./node_modules/.bin/typeorm",
+    "typeorm": "ts-node-dev node_modules/.bin/typeorm",
     "build": "tsc",
     "dev:server": "nodemon --watch 'src/**' --ext 'ts,json' --exec 'ts-node src/server.ts'",
     "lint": "eslint . --fix "
@@ -19,7 +19,7 @@
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.1",
+    "typeorm": "0.2.45",
     "winston": "^3.6.0"
   },
   "devDependencies": {
