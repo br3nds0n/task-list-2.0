@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+import '../src/database/index';
 
 class App {
   readonly express: Express;
