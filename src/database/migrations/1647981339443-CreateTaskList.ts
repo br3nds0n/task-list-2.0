@@ -4,7 +4,7 @@ export class CreateTaskList1647981339443 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'Task',
+        name: 'Tasks',
         columns: [
           {
             name: 'id',
