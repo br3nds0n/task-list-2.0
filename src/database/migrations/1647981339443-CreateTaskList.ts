@@ -17,11 +17,11 @@ export class CreateTaskList1647981339443 implements MigrationInterface {
           },
           {
             name: 'taskRelevance',
-            type: 'varchar',
+            type: 'int',
           },
           {
             name: 'completed',
-            type: 'varchar',
+            type: 'boolean',
           },
           {
             name: 'created_at',
