@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Controller, Post } from '@decorators/express';
+import { Controller, Post, Get } from '@decorators/express';
 import { Inject } from '@decorators/di';
 
 import ProjectService from '../service/ProjectService';
@@ -21,6 +21,16 @@ class ProjectController {
       const result = await this.projectService.create(project);
 
       return res.status(201).json(result);
+    } catch (error) {
+      return res.status(400).json(error.message);
+    }
+  }
+
+  @Get('/')
+  async find(req: Request, res: Response): Promise<Response> {
+    try {
+      const result = await this.projectService.find();
+      return res.status(200).json(result);
     } catch (error) {
       return res.status(400).json(error);
     }
