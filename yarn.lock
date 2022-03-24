@@ -30,7 +30,7 @@
 
 "@decorators/di@^1.0.3":
   version "1.0.3"
-  resolved "https://registry.npmjs.org/@decorators/di/-/di-1.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/@decorators/di/-/di-1.0.3.tgz#544c6302e3aab80fa8959c67f9ed4a411a6f00b1"
   integrity sha512-wafyQo5lqGABT+Lh7Od9/qULg7DG/kZFU3mLUKZFuiV/KATYlnv198yQxaZUZerhUDoTl/cZKu9t4mJa0rZK4Q==
   dependencies:
     reflect-metadata "0.1.13"

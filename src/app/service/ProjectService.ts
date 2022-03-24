@@ -15,9 +15,14 @@ class ProjectService implements IProjectService {
   }
 
   async create(project: Iproject): Promise<Iproject> {
-    const newProject = this.projectRepository.create(project);
+    const newProject = await this.projectRepository.create(project);
 
     return newProject;
+  }
+
+  async find(): Promise<Iproject[]> {
+    const result = await this.projectRepository.find();
+    return result;
   }
 }
 

@@ -1,5 +1,6 @@
 import { Iproject } from './Iproject';
 
 export interface IProjectRepository {
-  create: (task: Iproject) => Promise<Iproject>
+  create: (project: Iproject) => Promise<Iproject>
+  find: () => Promise<Iproject[]>
 }

@@ -16,6 +16,12 @@ class ProjectRepository implements IProjectRepository {
 
     return newProject;
   }
+
+  async find(): Promise<Iproject[]> {
+    const repository = getRepository(Project);
+    const result = repository.find();
+    return result;
+  }
 }
 
 export default ProjectRepository;
