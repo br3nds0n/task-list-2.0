@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import { attachControllers } from '@decorators/express';
 
-import controller from '../../app/controller/TaskController';
+import TaskController from '../../app/controller/TaskController';
+import ProjectController from '../../app/controller/ProjectController';
 
 class RoutesV1 {
   static routes(): Router {
@@ -10,7 +11,8 @@ class RoutesV1 {
     attachControllers(
       router,
       [
-        controller,
+        TaskController,
+        ProjectController,
       ],
     );
 

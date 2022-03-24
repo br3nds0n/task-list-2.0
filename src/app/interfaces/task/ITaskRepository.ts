@@ -1,5 +1,5 @@
 import { Itask } from './Itask';
 
-export interface ItaskRepository {
+export interface ITaskRepository {
   create: (task: Itask) => Promise<Itask>
 }
