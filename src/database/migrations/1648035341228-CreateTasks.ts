@@ -8,7 +8,7 @@ export class CreateTasks1648035341228 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
           },
           {
@@ -21,7 +21,7 @@ export class CreateTasks1648035341228 implements MigrationInterface {
           },
           {
             name: 'tasks',
-            type: 'varchar',
+            type: 'uuid',
           },
         ],
         foreignKeys: [

@@ -8,7 +8,7 @@ export class CreateTaskList1647981339443 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
           },
           {
