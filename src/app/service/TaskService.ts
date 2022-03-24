@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@decorators/di';
-import { ItaskRepository } from '../interfaces/task/ITaskRepository';
+import { ITaskRepository } from '../interfaces/task/ITaskRepository';
 
 import TaskRepository from '../repository/TaskRepository';
 import { Itask } from '../interfaces/task/Itask';
@@ -7,9 +7,9 @@ import { ITaskService } from '../interfaces/task/ITaskService';
 
 @Injectable()
 class TaskService implements ITaskService {
-  private readonly taskRepository: ItaskRepository;
+  private readonly taskRepository: ITaskRepository;
 
-  constructor(@Inject(TaskRepository) taskReporitory: ItaskRepository) {
+  constructor(@Inject(TaskRepository) taskReporitory: ITaskRepository) {
     this.taskRepository = taskReporitory;
   }
 

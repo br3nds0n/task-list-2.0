@@ -3,11 +3,11 @@ import { getRepository } from 'typeorm';
 
 import Task from '../models/TaskModel';
 
-import { ItaskRepository } from '../interfaces/task/ITaskRepository';
+import { ITaskRepository } from '../interfaces/task/ITaskRepository';
 import { Itask } from '../interfaces/task/Itask';
 
 @Injectable()
-class TaskRepository implements ItaskRepository {
+class TaskRepository implements ITaskRepository {
   async create(task: Itask): Promise<Itask> {
     const repository = getRepository(Task);
 
