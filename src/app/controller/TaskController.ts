@@ -8,7 +8,7 @@ import TaskService from '../service/TaskService';
 import { ITaskService } from '../interfaces/task/ITaskService';
 import { Itask } from '../interfaces/task/Itask';
 
-@Controller('/project')
+@Controller('/task')
 class TaskController {
   private readonly taskService: ITaskService;
 
