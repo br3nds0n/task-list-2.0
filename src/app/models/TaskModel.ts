@@ -2,8 +2,16 @@ import {
   Entity, Column, PrimaryColumn, CreateDateColumn,
 } from 'typeorm';
 
+import { v4 as uuid } from 'uuid';
+
 @Entity('Tasks')
 class Task {
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
+    }
+  }
+
   @PrimaryColumn()
     id: string;
 
