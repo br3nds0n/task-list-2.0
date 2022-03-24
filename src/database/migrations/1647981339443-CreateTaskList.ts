@@ -39,6 +39,6 @@ export class CreateTaskList1647981339443 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('Task');
+    await queryRunner.dropTable('Tasks');
   }
 }

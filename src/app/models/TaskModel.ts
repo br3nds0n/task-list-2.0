@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import {
+  Entity, Column, PrimaryColumn, CreateDateColumn,
+} from 'typeorm';
 
 @Entity('Tasks')
 class Task {
@@ -14,10 +16,10 @@ class Task {
   @Column()
     completed: boolean;
 
-  @Column()
+  @CreateDateColumn()
     created_at: Date;
 
-  @Column()
+  @CreateDateColumn()
     updated_at: Date;
 }
 
