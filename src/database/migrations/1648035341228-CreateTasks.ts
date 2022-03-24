@@ -28,7 +28,7 @@ export class CreateTasks1648035341228 implements MigrationInterface {
           {
             name: 'fk_tasks',
             columnNames: ['tasks'],
-            referencedTableName: 'Task',
+            referencedTableName: 'Tasks',
             referencedColumnNames: ['id'],
           },
         ],
