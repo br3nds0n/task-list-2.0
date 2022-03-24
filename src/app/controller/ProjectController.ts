@@ -39,7 +39,7 @@ class ProjectController {
   @Get('/:id')
   async findId(req: Request, res: Response): Promise<Response> {
     try {
-      const id = req.params;
+      const { id } = req.params;
       const result = await this.projectService.findId(id);
       return res.status(200).json(result);
     } catch (error) {
