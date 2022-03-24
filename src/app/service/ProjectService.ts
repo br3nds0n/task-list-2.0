@@ -24,6 +24,11 @@ class ProjectService implements IProjectService {
     const result = await this.projectRepository.find();
     return result;
   }
+
+  async findId(id: string): Promise<Iproject> {
+    const result = await this.projectRepository.findId(id);
+    return result;
+  }
 }
 
 export default ProjectService;
