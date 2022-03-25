@@ -2,10 +2,18 @@ import {
   Entity, Column, PrimaryColumn, ManyToOne, JoinColumn,
 } from 'typeorm';
 
+import { v4 as uuid } from 'uuid';
+
 import Task from './TaskModel';
 
 @Entity('Projects')
 class Project {
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
+    }
+  }
+
   @PrimaryColumn()
     id: string;
 

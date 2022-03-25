@@ -1,7 +1,17 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import {
+  Entity, Column, PrimaryColumn, CreateDateColumn,
+} from 'typeorm';
+
+import { v4 as uuid } from 'uuid';
 
 @Entity('Tasks')
 class Task {
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
+    }
+  }
+
   @PrimaryColumn()
     id: string;
 
@@ -14,10 +24,10 @@ class Task {
   @Column()
     completed: boolean;
 
-  @Column()
+  @CreateDateColumn()
     created_at: Date;
 
-  @Column()
+  @CreateDateColumn()
     updated_at: Date;
 }
 
