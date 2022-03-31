@@ -2,11 +2,7 @@ import { createConnection } from 'typeorm';
 import { logger } from '../app/utils/log/logger';
 
 class Database {
-  constructor() {
-    this.connect();
-  }
-
-  private async connect(): Promise<void> {
+  static async connect(): Promise<void> {
     try {
       await createConnection();
       logger.info('Connected to database');
@@ -16,4 +12,4 @@ class Database {
   }
 }
 
-export default new Database();
+export default Database;

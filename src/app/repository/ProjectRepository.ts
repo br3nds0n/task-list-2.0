@@ -19,7 +19,9 @@ class ProjectRepository implements IProjectRepository {
 
   async find(): Promise<Iproject[]> {
     const repository = getRepository(Project);
-    const result = repository.find();
+    const result = repository.find({
+      relations: ['task'],
+    });
     return result;
   }
 
