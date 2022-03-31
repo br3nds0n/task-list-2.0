@@ -1,6 +1,6 @@
 import express, { Express } from 'express';
 
-import './database/index';
+import database from './database/index';
 import routes from './routes/index';
 
 class App {
@@ -13,6 +13,13 @@ class App {
     this.routes();
   }
 
+  static async init() {
+    const app = new App();
+    await database.connect();
+
+    return app.express;
+  }
+
   middlewares(): void {
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: true }));
@@ -23,4 +30,4 @@ class App {
   }
 }
 
-export default new App().express;
+export default App;
