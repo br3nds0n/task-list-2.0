@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import {
-  Controller, Post, Get, Put,
+  Controller, Post, Get, Put, Delete,
 } from '@decorators/express';
 import { Inject } from '@decorators/di';
 
@@ -59,8 +59,20 @@ class ProjectController {
       const { id } = req.params;
       const payload = req.body;
 
-      const result = this.projectService.updated(id, payload);
-      return res.status(204).json(result);
+      this.projectService.updated(id, payload);
+      return res.status(200).json('updated sucess');
+    } catch (error) {
+      return res.status(400).json(error);
+    }
+  }
+
+  @Delete('/:id')
+  async delete(req: Request, res:Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+
+      this.projectService.delete(id);
+      return res.status(200).json('deleted sucess');
     } catch (error) {
       return res.status(400).json(error);
     }
