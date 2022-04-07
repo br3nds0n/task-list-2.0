@@ -29,6 +29,16 @@ class ProjectService implements IProjectService {
     const result = await this.projectRepository.findId(id);
     return result;
   }
+
+  async updated(id: string, payload: Iproject): Promise<void> {
+    const result = this.projectRepository.updated(id, payload);
+    return result;
+  }
+
+  async delete(id: string): Promise<void> {
+    const result = this.projectRepository.delete(id);
+    return result;
+  }
 }
 
 export default ProjectService;
