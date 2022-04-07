@@ -35,6 +35,11 @@ class ProjectRepository implements IProjectRepository {
     const repository = getRepository(Project);
     repository.update(id, payload);
   }
+
+  async delete(id:string): Promise<void> {
+    const repository = getRepository(Project);
+    repository.delete(id);
+  }
 }
 
 export default ProjectRepository;
