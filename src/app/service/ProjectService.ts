@@ -26,8 +26,20 @@ class ProjectService implements IProjectService {
   }
 
   async findId(id: string): Promise<Iproject> {
+    if (!id) {
+      console.log('id does not exist');
+    }
+
     const result = await this.projectRepository.findId(id);
     return result;
+  }
+
+  async updated(id: string, payload: Iproject): Promise<void> {
+    if (!id) {
+      console.log('id does not exist');
+    }
+
+    const result = this.projectRepository.updated(id, payload);
   }
 }
 

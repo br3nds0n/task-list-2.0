@@ -30,6 +30,11 @@ class ProjectRepository implements IProjectRepository {
     const result = repository.findOne(id);
     return result;
   }
+
+  async updated(id: string, payload: Iproject): Promise<void> {
+    const repository = getRepository(Project);
+    repository.update(id, payload);
+  }
 }
 
 export default ProjectRepository;

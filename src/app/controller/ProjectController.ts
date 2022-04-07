@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
-import { Controller, Post, Get } from '@decorators/express';
+import {
+  Controller, Post, Get, Put,
+} from '@decorators/express';
 import { Inject } from '@decorators/di';
 
 import ProjectService from '../service/ProjectService';
@@ -46,6 +48,19 @@ class ProjectController {
       const { id } = req.params;
       const result = await this.projectService.findId(id);
       return res.status(200).json(result);
+    } catch (error) {
+      return res.status(400).json(error);
+    }
+  }
+
+  @Put('/:id', [ValidationUUID, ValidationBodyProject])
+  async updated(req: Request, res:Response): Promise<Response> {
+    try {
+      const { id } = req.params;
+      const payload = req.body;
+
+      const result = this.projectService.updated(id, payload);
+      return res.status(204).json(result);
     } catch (error) {
       return res.status(400).json(error);
     }
