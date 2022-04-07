@@ -6,6 +6,10 @@ import ProjectService from '../service/ProjectService';
 import { IProjectService } from '../interfaces/project/IProjectService';
 import { Iproject } from '../interfaces/project/Iproject';
 
+import ValidationBodyProject from '../validations/ProjectValidation/ProjectValidationBody';
+import ValidationFindProject from '../validations/ProjectValidation/ProjectValidationFind';
+import ValidationUUID from '../validations/UuidValidation';
+
 @Controller('/project')
 class ProjectController {
   private readonly projectService: IProjectService;
@@ -14,7 +18,7 @@ class ProjectController {
     this.projectService = projectService;
   }
 
-  @Post('/')
+  @Post('/', [ValidationBodyProject])
   async create(req: Request, res: Response): Promise<Response> {
     try {
       const project: Iproject = req.body;
@@ -26,7 +30,7 @@ class ProjectController {
     }
   }
 
-  @Get('/')
+  @Get('/', [ValidationFindProject])
   async find(req: Request, res: Response): Promise<Response> {
     try {
       const result = await this.projectService.find();
@@ -36,7 +40,7 @@ class ProjectController {
     }
   }
 
-  @Get('/:id')
+  @Get('/:id', [ValidationUUID, ValidationFindProject])
   async findId(req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params;
