@@ -8,6 +8,8 @@ import TaskService from '../service/TaskService';
 import { ITaskService } from '../interfaces/task/ITaskService';
 import { Itask } from '../interfaces/task/Itask';
 
+import ValidationBodyTask from '../validations/TaskValidation/TaskValidationBody';
+
 @Controller('/task')
 class TaskController {
   private readonly taskService: ITaskService;
@@ -16,7 +18,7 @@ class TaskController {
     this.taskService = taskService;
   }
 
-  @Post('/')
+  @Post('/', [ValidationBodyTask])
   async create(req: Request, res: Response): Promise<Response> {
     try {
       const Task:Itask = req.body;
