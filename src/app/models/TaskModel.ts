@@ -1,8 +1,9 @@
 import {
-  Entity, Column, PrimaryColumn, CreateDateColumn,
+  Entity, Column, PrimaryColumn, CreateDateColumn, ManyToOne,
 } from 'typeorm';
 
 import { v4 as uuid } from 'uuid';
+import Project from './ProjectModel';
 
 @Entity('Tasks')
 class Task {
@@ -14,6 +15,9 @@ class Task {
 
   @PrimaryColumn()
     id: string;
+
+  @ManyToOne(() => Project, (project) => project.tasks)
+    project: Project;
 
   @Column()
     title: string;
