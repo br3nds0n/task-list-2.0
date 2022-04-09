@@ -1,5 +1,5 @@
 import {
-  Entity, Column, PrimaryColumn, ManyToOne, JoinColumn,
+  Entity, Column, PrimaryColumn, OneToMany,
 } from 'typeorm';
 
 import { v4 as uuid } from 'uuid';
@@ -23,12 +23,8 @@ class Project {
   @Column()
     description: string;
 
-  @Column()
-    tasks: string;
-
-  @ManyToOne(() => Task)
-  @JoinColumn({ name: 'tasks' })
-    task: Task;
+  @OneToMany(() => Task, (task) => task.project)
+    tasks: Task[];
 }
 
 export default Project;
